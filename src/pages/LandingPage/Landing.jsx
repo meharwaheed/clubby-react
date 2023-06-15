@@ -19,6 +19,7 @@ import AddIcon from "@mui/icons-material/Add";
 import landingImage from '../../assets/images/landing.svg'
 import {useTheme} from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import {Link} from "react-router-dom";
 
 const drawerWidth = 240;
 const navItems = ['HOME', 'REVIEWS', 'FAQS', 'ABOUT US', 'Contact Us'];
@@ -143,6 +144,8 @@ function Landing(props) {
                 <Grid container spacing={2} pt={3}>
                     <Grid item md={6} sm={6} xs={6} align='right'>
                         <CustomButton
+                            component={Link}
+                            to='/login'
                             startIcon={useMediaQuery(theme.breakpoints.up('sm')) ? <PersonAddAltIcon/> : ''}
                             label='Join Club'
                             className='clubby-linear-bg'
