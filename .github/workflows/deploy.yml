@@ -1,4 +1,4 @@
-name: QA
+name: "Clubby React"
 on:
   push:
     branches: [ release ]
