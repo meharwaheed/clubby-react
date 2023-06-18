@@ -91,7 +91,8 @@ function Landing(props) {
                                 key={item}
                                 label={item}
                                 sx={{color: 'black'}}
-                                className={item === 'Contact Us' ? 'clubby-linear-bg' : ''}
+                                variant="text"
+                                className={item == 'Contact Us' ? 'clubby-linear-bg' : ''}
                             />
                         ))}
                     </Box>
@@ -156,6 +157,7 @@ function Landing(props) {
                         <CustomButton
                             startIcon={useMediaQuery(theme.breakpoints.up('sm')) ? <AddIcon/> : ''}
                             label='Create a Club'
+                            variant='text'
                             sx={{px: {md: 3}, py: 1, bgcolor: 'white'}}
                         />
                     </Grid>
