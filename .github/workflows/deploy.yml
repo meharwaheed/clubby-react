@@ -1,0 +1,36 @@
+name: QA
+on:
+  push:
+    branches: [ release ]
+  workflow_dispatch:
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Docker Login
+        uses: docker/login-action@v1.12.0
+        with:
+          registry: dock.abdulwaheed.me
+          username: waheed
+          password: ${{ secrets.DOCKER_PWD }}
+      - name: Set ENV
+        run: |-
+          echo "API_URL=https://api.codinglab.me >> ./.env
+      - name: Build & Push
+        uses: docker/build-push-action@v2.8.0
+        with:
+          context: './'
+          file: './Dockerfile'
+          tags: 'dock.abdulwaheed.me/clubby:latest'
+          push: true
+  Deploy:
+    runs-on: ubuntu-latest
+    needs: [Build]
+    steps:
+      - name: Deploy React App
+        uses: steebchen/kubectl@v2.0.0
+        with:
+          config: ${{ secrets.KUBE_CONFIG }}
+          command: '-n codinglab rollout restart deployment/codinglab'
