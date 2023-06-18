@@ -33,4 +33,4 @@ jobs:
         uses: steebchen/kubectl@v2.0.0
         with:
           config: ${{ secrets.KUBE_CONFIG }}
-          command: '-n codinglab rollout restart deployment/codinglab'
+          command: '-n codinglab rollout restart deployment/app'
