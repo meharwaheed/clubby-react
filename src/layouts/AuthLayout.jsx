@@ -28,9 +28,9 @@ const AuthLayout = ({ children }) => {
     ]
     return (
         <>
-            <Grid container height='100vh'>
-                <Grid item md={6} xs={12} className='clubby-linear-bg' sx={{ display: 'flex', placeItems: 'center', justifyContent: 'center' }}>
-                    <Grid item xs={10} md={8}>
+            <Grid container direction='row-reverse' height='100vh'>
+                <Grid item md={6} xs={12} className='clubby-linear-bg' sx={{ display: 'flex', placeItems: 'center', justifyContent: 'center', order: 2 }}>
+                    <Grid item xs={10} md={8} py={5}>
                         <Typography variant='h5' sx={{ fontWeight: 700 }}>
                             Welcome to Clubby: <br/>
                             The only app your club will ever <br/> need.
