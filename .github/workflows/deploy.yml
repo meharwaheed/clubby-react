@@ -17,7 +17,7 @@ jobs:
           password: ${{ secrets.DOCKER_PWD }}
       - name: Set ENV
         run: |-
-          echo "API_URL=https://api.codinglab.me >> ./.env
+          echo "API_URL=https://api.codinglab.me" >> ./.env
       - name: Build & Push
         uses: docker/build-push-action@v2.8.0
         with:
