@@ -55,3 +55,7 @@ h1 {
 .text-linear-gradient {
   color: linear-gradient(146.39deg, #0070B2 -0.65%, #0079B6 13.32%, #0092C3 36.57%, #00A3CB 84.07%);
 }
+
+.border-radius-10 {
+  border-radius: 10px !important;
+}

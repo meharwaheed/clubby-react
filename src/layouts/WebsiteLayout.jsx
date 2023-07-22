@@ -23,26 +23,26 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const navLinks = [
     {
-        icon: <HomeIcon />,
+        icon: <HomeIcon/>,
         path: '/home',
     },
     {
-        icon: <CalendarMonth />,
+        icon: <CalendarMonth/>,
         path: '/calendar',
     },
     {
-        icon: <AccountBalanceWalletIcon />,
+        icon: <AccountBalanceWalletIcon/>,
         path: '/budget',
     },
     {
-        icon: <MessageIcon />,
+        icon: <MessageIcon/>,
         path: '/chat',
     },
 ];
 
 function WebsiteLayout() {
     const location = useLocation();
-    const { pathname } = location;
+    const {pathname} = location;
 
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -55,35 +55,35 @@ function WebsiteLayout() {
     };
 
     return (
-        <AppBar position="static" sx={{ bgcolor: 'white', boxShadow: 'none', py: 1 }}>
+        <AppBar position="static" sx={{bgcolor: 'white', boxShadow: 'none', pb: 2}}>
             <Container maxWidth="xl">
                 <Toolbar>
-                    <img src={logo} alt=""/>
-                    <Box pl={5} sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                    <img src={logo} loading='lazy' alt=""/>
+                    <Box pl={5} sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
                         {navLinks.map((item) => (
                             <IconButton
                                 key={item.path}
                                 component={Link}
                                 to={item.path}
-                                sx={{ borderRadius: '10px', ml: 3 }}
+                                sx={{borderRadius: '10px', ml: 3}}
                                 className={pathname === item.path ? 'clubby-linear-bg' : ''}
                             >
                                 {item.icon}
                             </IconButton>
                         ))}
                     </Box>
-                    <Box sx={{ flexGrow: 1 }}></Box>
-                    <Box sx={{ flexGrow: 0, display: 'flex' }}>
+                    <Box sx={{flexGrow: 1}}></Box>
+                    <Box sx={{flexGrow: 0, display: 'flex'}}>
                         <IconButton
-                            sx={{ borderRadius: '10px', ml: 3, backgroundColor: '#A8AAAB90' }}
+                            sx={{borderRadius: '10px', ml: 3, backgroundColor: '#A8AAAB90'}}
                         >
-                            <NotificationsIcon sx={{ color: 'black' }}/>
+                            <NotificationsIcon sx={{color: 'black'}}/>
                         </IconButton>
                         <Avatar
                             onClick={handleOpenUserMenu}
                             variant="rounded"
                             src="/emoji.svg"
-                            sx={{ ml: 2, cursor: 'pointer', width: 34, height: 34, border: '1px solid red' }}
+                            sx={{ml: 2, cursor: 'pointer', width: 34, height: 34, border: '1px solid red'}}
                         >
 
                         </Avatar>
@@ -99,10 +99,16 @@ function WebsiteLayout() {
                             disableFocusRipple
                             disableRipple
                             onClick={handleOpenUserMenu}
-                            sx={{ cursor: 'pointer', fontWeight: 700, color: 'black', "&:hover": {backgroundColor: "transparent"}, display: {xs: 'none', md: 'flex'}  }}
+                            sx={{
+                                cursor: 'pointer',
+                                fontWeight: 700,
+                                color: 'black',
+                                "&:hover": {backgroundColor: "transparent"},
+                                display: {xs: 'none', md: 'flex'}
+                            }}
                         />
                         <Menu
-                            sx={{ mt: '45px' }}
+                            sx={{mt: '45px'}}
                             id="menu-appbar"
                             anchorEl={anchorElUser}
                             anchorOrigin={{
@@ -129,4 +135,5 @@ function WebsiteLayout() {
         </AppBar>
     );
 }
+
 export default WebsiteLayout;
